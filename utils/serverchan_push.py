@@ -3,7 +3,7 @@ import config
 import requests
 
 
-def push_to_wechat(text,desp,secretKey):
+def push_to_wechat(title,desp,secretKey):
     """
     通过serverchan将消息推送到微信
     :param secretKey: severchan secretKey
@@ -13,7 +13,7 @@ def push_to_wechat(text,desp,secretKey):
     """
     url = f'http://sctapi.ftqq.com/{secretKey}.send'
     session = requests.Session()
-    data = {'title':text,'desp':desp}
+    data = {'title':title,'desp':desp}
     resp = session.post(url,data = data)
     return resp.json()
 
